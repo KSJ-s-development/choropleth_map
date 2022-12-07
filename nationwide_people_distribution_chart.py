@@ -23,7 +23,8 @@ folium.Choropleth(geo_data=geo).add_to(map_sig)
 df['pop'].describe()
 
 # 인구 시리즈 데이터에서 20% 구간별 구간 나누기
-df['pop'].quantile([0, 0.2, 0.4, 0.6, 0.8, 1])
+# 리스트화 하여, 구간 정보로 담기
+bins = df['pop'].quantile([0, 0.2, 0.4, 0.6, 0.8, 1]).to_list()
 
 # 단계구분도 만들기
 folium.Choropleth(geo_data=geo,                    # 지도 데이터
